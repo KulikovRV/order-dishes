@@ -17,6 +17,9 @@ class Order extends Model
 
     public function dishes()
     {
-        return $this->belongsToMany(Dish::class);
+        return $this->hasManyThrough(
+            Dish::class, 
+            DishOrder::class, 
+        );
     }
 }
